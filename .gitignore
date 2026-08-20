@@ -1,0 +1,9 @@
+# Dependencias de Node
+node_modules/
+
+# Variables de entorno (contiene credenciales de Supabase, NUNCA se sube)
+.env
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

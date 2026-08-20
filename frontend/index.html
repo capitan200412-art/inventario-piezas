@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventario de Piezas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-left">
+    <div class="badge">⛭</div>
+    <div>
+      <h1>Inventario de Piezas</h1>
+      <p class="subtitle">Marca · Modelo · Año</p>
+    </div>
+  </div>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="activas">En inventario</button>
+    <button class="tab-btn" data-tab="historial">Historial</button>
+  </nav>
+</header>
+
+<main>
+
+  <section class="panel form-panel">
+    <h2>Agregar pieza</h2>
+    <form id="form-pieza">
+      <div class="field">
+        <label for="codigo">Código <span class="opt">(opcional)</span></label>
+        <input type="text" id="codigo" placeholder="MOT-001">
+      </div>
+      <div class="field">
+        <label for="nombre_pieza">Pieza</label>
+        <input type="text" id="nombre_pieza" placeholder="Alternador" required>
+      </div>
+      <div class="field">
+        <label for="marca">Marca</label>
+        <input type="text" id="marca" placeholder="Toyota" required>
+      </div>
+      <div class="field">
+        <label for="modelo">Modelo</label>
+        <input type="text" id="modelo" placeholder="Corolla" required>
+      </div>
+      <div class="field">
+        <label for="anio">Año</label>
+        <input type="number" id="anio" placeholder="2015" required>
+      </div>
+      <div class="field field-wide">
+        <label for="descripcion">Notas <span class="opt">(opcional)</span></label>
+        <input type="text" id="descripcion" placeholder="Estado, ubicación, etc.">
+      </div>
+      <button type="submit" class="btn-primary">+ Agregar al inventario</button>
+    </form>
+    <p id="form-msg" class="form-msg"></p>
+  </section>
+
+  <section class="panel list-panel">
+    <div class="list-header">
+      <h2 id="list-title">Piezas activas</h2>
+      <input type="text" id="buscador" placeholder="Buscar por código, marca, modelo...">
+    </div>
+    <div id="lista" class="tarjetas"></div>
+    <p id="vacio-msg" class="vacio-msg" style="display:none;"></p>
+  </section>
+
+</main>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

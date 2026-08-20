@@ -1,0 +1,257 @@
+:root {
+  --bg: #1a1c1e;
+  --panel: #232629;
+  --panel-line: #34383c;
+  --ink: #eae7e0;
+  --ink-dim: #969b9f;
+  --amber: #f3a712;
+  --amber-dim: #7a5c14;
+  --steel: #5b8aa6;
+  --danger: #d9634a;
+  --radius: 3px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 14px);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+}
+
+/* ---------- Topbar ---------- */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 22px 32px;
+  border-bottom: 2px solid var(--panel-line);
+  background: linear-gradient(180deg, #202325, #1a1c1e);
+}
+
+.topbar-left { display: flex; align-items: center; gap: 14px; }
+
+.badge {
+  width: 42px; height: 42px;
+  border: 2px solid var(--amber);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  color: var(--amber);
+  flex-shrink: 0;
+}
+
+.topbar h1 { font-size: 20px; letter-spacing: 0.3px; }
+.subtitle {
+  margin: 2px 0 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.tabs { display: flex; gap: 6px; background: #16181a; padding: 4px; border-radius: var(--radius); }
+.tab-btn {
+  background: none; border: none; color: var(--ink-dim);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase;
+  padding: 9px 16px; border-radius: var(--radius);
+  cursor: pointer;
+}
+.tab-btn.active { background: var(--amber); color: #1a1c1e; font-weight: 600; }
+
+/* ---------- Layout ---------- */
+main {
+  padding: 28px 32px 60px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 860px) {
+  main { grid-template-columns: 1fr; padding: 20px; }
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+
+.panel h2 {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink-dim);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--panel-line);
+}
+
+/* ---------- Form ---------- */
+#form-pieza { display: flex; flex-direction: column; gap: 14px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 12px; color: var(--ink-dim); }
+.field .opt { color: #5f6367; font-weight: 400; }
+
+.field input {
+  background: #1a1c1e;
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+.field input:focus {
+  outline: none;
+  border-color: var(--amber);
+}
+
+.btn-primary {
+  margin-top: 6px;
+  background: var(--amber);
+  color: #1a1c1e;
+  border: none;
+  border-radius: var(--radius);
+  padding: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.btn-primary:hover { background: #ffb733; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.form-msg { margin-top: 10px; font-size: 13px; min-height: 16px; }
+.form-msg.ok { color: #7cc48a; }
+.form-msg.error { color: var(--danger); }
+
+/* ---------- List ---------- */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--panel-line);
+}
+.list-header h2 { border: none; padding: 0; margin: 0; }
+
+#buscador {
+  background: #1a1c1e;
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius);
+  padding: 9px 12px;
+  color: var(--ink);
+  font-size: 13px;
+  width: 240px;
+}
+#buscador:focus { outline: none; border-color: var(--steel); }
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+/* Tarjeta estilo "etiqueta de refacción" colgante */
+.tarjeta {
+  position: relative;
+  background: #1d2022;
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius);
+  padding: 16px 14px 14px;
+}
+.tarjeta::before {
+  content: "";
+  position: absolute;
+  top: 12px; left: 12px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--panel-line);
+}
+.tarjeta-codigo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.5px;
+  margin-left: 22px;
+}
+.tarjeta-nombre {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  margin: 8px 0 6px;
+}
+.tarjeta-linea {
+  border-top: 1px dashed var(--panel-line);
+  margin: 10px 0;
+}
+.tarjeta-datos {
+  font-size: 12px;
+  color: var(--ink-dim);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+.tarjeta-datos b { color: var(--ink); font-weight: 500; }
+.tarjeta-desc {
+  font-size: 12px;
+  color: var(--ink-dim);
+  margin-top: 8px;
+  font-style: italic;
+}
+.tarjeta-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.tarjeta-fecha {
+  font-size: 10px;
+  color: #5f6367;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.btn-eliminar {
+  background: none;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  border-radius: var(--radius);
+  font-size: 11px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.btn-eliminar:hover { background: var(--danger); color: #1a1c1e; }
+
+.tarjeta.historial { opacity: 0.75; }
+.tarjeta.historial .tarjeta-codigo { color: var(--steel); }
+.tag-eliminado {
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  border-radius: 20px;
+  padding: 2px 8px;
+}
+
+.vacio-msg {
+  text-align: center;
+  color: var(--ink-dim);
+  font-size: 13px;
+  padding: 30px 10px;
+}
