@@ -21,6 +21,8 @@
   <nav class="tabs">
     <button class="tab-btn active" data-tab="activas">En inventario</button>
     <button class="tab-btn" data-tab="historial">Historial</button>
+        <button class="tab-btn" data-tab="por-llegar">Por llegar</button>
+    <button class="tab-btn" data-tab="entregas">Entregas</button>
   </nav>
 </header>
 
@@ -56,6 +58,41 @@
       <button type="submit" class="btn-primary">+ Agregar al inventario</button>
     </form>
     <p id="form-msg" class="form-msg"></p>
+  </section>
+  <section class="panel form-panel" id="form-panel-llegar" style="display:none;">
+    <h2>Agregar pieza por llegar</h2>
+    <form id="form-pieza-llegar">
+      <div class="field">
+        <label for="codigo-llegar">Código <span class="opt">(opcional)</span></label>
+        <input type="text" id="codigo-llegar" placeholder="MOT-001">
+      </div>
+      <div class="field">
+        <label for="nombre_pieza-llegar">Pieza</label>
+        <input type="text" id="nombre_pieza-llegar" placeholder="Alternador" required>
+      </div>
+      <div class="field">
+        <label for="marca-llegar">Marca</label>
+        <input type="text" id="marca-llegar" placeholder="Toyota" required>
+      </div>
+      <div class="field">
+        <label for="modelo-llegar">Modelo</label>
+        <input type="text" id="modelo-llegar" placeholder="Corolla" required>
+      </div>
+      <div class="field">
+        <label for="anio-llegar">Año</label>
+        <input type="number" id="anio-llegar" placeholder="2015" required>
+      </div>
+      <div class="field">
+        <label for="fecha_llegada">Fecha de llegada</label>
+        <input type="date" id="fecha_llegada">
+      </div>
+      <div class="field field-wide">
+        <label for="descripcion-llegar">Notas <span class="opt">(opcional)</span></label>
+        <input type="text" id="descripcion-llegar" placeholder="Estado, ubicación, etc.">
+      </div>
+      <button type="submit" class="btn-primary">+ Agregar a "por llegar"</button>
+    </form>
+    <p id="form-msg-llegar" class="form-msg"></p>
   </section>
 
   <section class="panel list-panel">
