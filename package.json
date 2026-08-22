@@ -1,0 +1,24 @@
+{
+  "name": "inventario-piezas",
+  "version": "1.0.0",
+  "description": "Web para agregar, buscar y eliminar piezas de carro (marca, modelo, año), con historial permanente: al \"eliminar\" una pieza, no se borra — se mueve a una tabla de historial.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capitan200412-art/inventario-piezas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/capitan200412-art/inventario-piezas/issues"
+  },
+  "homepage": "https://github.com/capitan200412-art/inventario-piezas#readme"
+}
